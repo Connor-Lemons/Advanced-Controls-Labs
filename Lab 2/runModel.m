@@ -1,4 +1,4 @@
-function out = runModel(mode)
+function out = runModel(mode, t)
 
     if (mode == "base")
         simIn = Simulink.SimulationInput("Lab2_model");
@@ -11,6 +11,7 @@ function out = runModel(mode)
         return
     end
 
+    simIn = setModelParameter(simIn, "StopTime", t);
     out = sim(simIn);
 
 end
